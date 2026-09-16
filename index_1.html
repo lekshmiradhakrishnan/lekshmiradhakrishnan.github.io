@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lekshmi Radhakrishnan</title>
+<meta name="description" content="Lekshmi Radhakrishnan studies how cultural context shapes the way psychological distress is expressed, understood, and treated.">
+<meta name="author" content="Lekshmi Radhakrishnan">
+<link rel="canonical" href="https://lekshmiradhakrishnan.github.io/">
+
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://lekshmiradhakrishnan.github.io/">
+<meta property="og:title" content="Lekshmi Radhakrishnan">
+<meta property="og:description" content="Culturally responsive assessment and treatment of psychopathology.">
+<meta property="og:image" content="https://lekshmiradhakrishnan.github.io/portrait.jpg">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%A7%B5</text></svg>">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=Karla:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --paper:#FCFCFA; --raise:#FFFFFF;
+    --ink:#1C1D20; --ink-soft:#55575E; --ink-faint:#8B8E96;
+    --line:#E4E3DF; --line-soft:#EFEEEA;
+    --accent:#1C6055; --accent-soft:#E9F1EF;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#16181B; --raise:#1C1F23;
+      --ink:#EDEEF0; --ink-soft:#A0A3AB; --ink-faint:#71747D;
+      --line:#292C31; --line-soft:#22252A;
+      --accent:#74B9A9; --accent-soft:#182A28;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#16181B; --raise:#1C1F23;
+    --ink:#EDEEF0; --ink-soft:#A0A3AB; --ink-faint:#71747D;
+    --line:#292C31; --line-soft:#22252A;
+    --accent:#74B9A9; --accent-soft:#182A28;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--paper); color:var(--ink); margin:0;
+    font-family:"Karla",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    font-size:16.5px; line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:720px; margin:0 auto; padding-left:20px; padding-right:20px; padding-block:52px 92px}
+
+  /* --- masthead --- */
+  .masthead{display:flex; gap:22px; align-items:center; margin:0 0 44px}
+  .masthead img{
+    width:104px; height:104px; flex:0 0 auto;
+    border-radius:50%; object-fit:cover; object-position:center 22%;
+    border:1px solid var(--line);
+  }
+  .masthead .who{min-width:0}
+  .name{
+    font-family:"Karla",sans-serif; font-size:14px; font-weight:600;
+    letter-spacing:.1em; text-transform:uppercase; margin:0 0 5px;
+  }
+  .role{font-size:14.5px; color:var(--ink-soft); margin:0; line-height:1.5}
+  .role a{color:var(--ink-soft); border-bottom:1px solid var(--line)}
+  .role a:hover{color:var(--accent); border-bottom-color:var(--accent)}
+  @media (max-width:480px){
+    .masthead{flex-direction:column; align-items:flex-start; gap:16px}
+    .masthead img{width:88px; height:88px}
+  }
+
+  /* --- the question --- */
+  .thesis{
+    font-family:"Spectral",Georgia,serif; font-weight:300;
+    font-size:clamp(25px,4.6vw,38px); line-height:1.24; letter-spacing:-.012em;
+    margin:0 0 30px; text-wrap:balance; max-width:22em;
+  }
+  .thesis em{font-style:italic; font-weight:400}
+
+  .lede{font-size:17px; margin:0 0 20px; max-width:60ch}
+  p{margin:0 0 18px}
+  a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent-soft)}
+  a:hover{border-bottom-color:var(--accent)}
+  a:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px}
+  cite{font-style:italic}
+
+  /* --- sections --- */
+  h2{
+    font-family:"Karla",sans-serif; font-size:12px; font-weight:600;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--ink-faint);
+    margin:58px 0 20px; padding-bottom:9px; border-bottom:1px solid var(--line);
+  }
+
+  /* --- vantages: the through-line --- */
+  .vantage{display:flex; flex-direction:column; gap:22px}
+  .vantage > div{display:grid; grid-template-columns:118px 1fr; gap:4px 20px; align-items:baseline}
+  .vantage .level{
+    font-family:"Karla",sans-serif; font-size:11px; font-weight:600;
+    letter-spacing:.1em; text-transform:uppercase; color:var(--accent);
+    padding-top:5px;
+  }
+  .vantage .body{margin:0}
+  .vantage .lab{font-weight:600}
+  .vantage .lab .pi{font-weight:400; color:var(--ink-soft)}
+  .vantage .what{display:block; color:var(--ink-soft); font-size:15.5px; margin-top:2px}
+  @media (max-width:560px){
+    .vantage > div{grid-template-columns:1fr; gap:3px}
+    .vantage .level{padding-top:0}
+  }
+  .synthesis{margin-top:26px; color:var(--ink-soft); font-size:15.5px; max-width:60ch}
+
+  /* --- publications --- */
+  .pubs{display:flex; flex-direction:column; gap:22px}
+  .pub{font-size:15.5px; line-height:1.55}
+  .pub .cite{margin:0}
+  .pub .me{font-weight:600}
+  .pub .jrnl{font-style:italic}
+  .pub .note{display:block; color:var(--ink-faint); font-size:14px; margin-top:5px}
+  .pub .note a{color:var(--ink-soft)}
+
+  /* --- the project block --- */
+  .project{
+    background:var(--raise); border:1px solid var(--line);
+    border-left:2px solid var(--accent); border-radius:2px;
+    padding:22px 24px; margin:0;
+  }
+  .project h3{
+    font-family:"Spectral",Georgia,serif; font-weight:400; font-style:italic;
+    font-size:19.5px; line-height:1.3; margin:0 0 12px; text-wrap:balance;
+  }
+  .project p{font-size:15.5px; margin:0 0 12px}
+  .project p:last-child{margin-bottom:0}
+  .project .status{
+    font-family:"Karla",sans-serif; font-size:11px; font-weight:600;
+    letter-spacing:.09em; text-transform:uppercase; color:var(--ink-faint);
+  }
+
+  /* --- compact lists --- */
+  .rows{display:flex; flex-direction:column; gap:15px}
+  .rows > div{font-size:15.5px}
+  .rows .h{font-weight:600}
+  .rows .d{display:block; color:var(--ink-soft); font-size:15px; margin-top:1px}
+
+  .langs{font-size:15.5px; color:var(--ink-soft)}
+  .langs b{color:var(--ink); font-weight:600}
+
+  /* --- contact --- */
+  .contact{display:flex; flex-wrap:wrap; gap:14px 30px; font-size:15.5px}
+  .contact div{display:flex; flex-direction:column}
+  .contact .k{font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:2px}
+  .contact .v{color:var(--ink-soft)}
+
+  footer{margin-top:64px; padding-top:20px; border-top:1px solid var(--line)}
+  footer .places{
+    font-size:13.5px; color:var(--ink-faint); margin:0; line-height:1.75;
+  }
+  footer .places b{color:var(--ink-soft); font-weight:500}
+
+  @media (prefers-reduced-motion:reduce){*{transition:none!important; animation:none!important}}
+</style>
+<style>
+  html{-webkit-text-size-adjust:100%}
+  img{max-width:100%}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="masthead">
+    <img src="portrait.jpg" alt="Lekshmi Radhakrishnan" width="520" height="520">
+    <div class="who">
+      <p class="name">Lekshmi Radhakrishnan</p>
+      <p class="role">Research Assistant, <a href="https://psychology.fas.harvard.edu/people/joshua-conrad-jackson">Cultural Dynamics Lab</a><br>ALM candidate in Psychology, Harvard University</p>
+    </div>
+  </div>
+
+  <p class="thesis">Many people never try therapy because they expect to spend it <em>explaining themselves</em> rather than being helped.</p>
+
+  <p class="lede">I study how cultural context shapes the way psychological distress is expressed, understood, and treated — and why treatments developed in one cultural setting so often fail to reach people from another.</p>
+
+  <p class="lede">That question isn't abstract for me. I grew up between Kerala and the United States, and I have spent most of my life watching people in one culture fail to make sense of perspectives that another treats as obvious. In clinical work, that gap has consequences: people decide the explaining isn't worth it, and quietly go without care.</p>
+
+  <p class="lede">My thinking here was shaped early by working with Mona Weissmark on <cite>Seeing the Other Side: Shifting Perceptions</cite>, on the psychology of perspective-taking across group and cultural lines. It gave me two things I still use: a serious framework for what it actually takes to see from another position, and transgenerational trauma as a way of understanding why some frames are so hard to step outside of.</p>
+
+  <h2>Four vantages on one question</h2>
+
+  <div class="vantage">
+    <div>
+      <span class="level">Cultural</span>
+      <p class="body"><span class="lab">Cultural Dynamics Lab <span class="pi">— Joshua Conrad Jackson</span></span>
+        <span class="what">How belief, moral judgment, and emotion vary and change across societies. The upstream question: what is culture actually doing to the mind?</span></p>
+    </div>
+    <div>
+      <span class="level">Clinical</span>
+      <p class="body"><span class="lab">McNally Lab <span class="pi">— Richard J. McNally, thesis advisor</span></span>
+        <span class="what">Anxiety and obsessive-compulsive spectrum conditions in the perinatal period, measured in daily life through ambulatory assessment and heart rate variability.</span></p>
+    </div>
+    <div>
+      <span class="level">Structural</span>
+      <p class="body"><span class="lab">Center for Bioethics, Harvard Medical School <span class="pi">— Rachel C. Conrad</span></span>
+        <span class="what">Who can reach care at all. I helped run a multi-state study of how licensure law blocks students from psychiatric treatment, and presented the findings to state medical boards and health policy groups.</span></p>
+    </div>
+    <div>
+      <span class="level">Biological</span>
+      <p class="body"><span class="lab">Hecht Lab &amp; Surbeck Pan Lab <span class="pi">— Erin Hecht, Martin Surbeck</span></span>
+        <span class="what">Comparative neuroscience and primatology of social bonding — where our claims about human nature come from, and how much weight they can carry.</span></p>
+    </div>
+  </div>
+
+  <p class="synthesis">Culture, clinical phenomena, structure, biology. A person avoiding a therapist's office is being acted on at all four levels at once, and I don't think you can fix the problem from only one of them.</p>
+
+  <h2>Publications</h2>
+
+  <div class="pubs">
+    <div class="pub">
+      <p class="cite">Conrad, R. C., Koire, A., <span class="me">Radhakrishnan, L.</span>, Charroux, A., Klingler, S., Benson, N. M., &amp; Boyd, J. W. (2025). Impact of state medical licensure exemptions and telehealth registries on college students' access to psychiatric care. <span class="jrnl">Psychiatric Services, 76</span>(6), 602–605. <a href="https://doi.org/10.1176/appi.ps.20240225">doi:10.1176/appi.ps.20240225</a>
+        <span class="note">Covered in <a href="https://doi.org/10.1176/appi.pn.2025.03.3.42">Psychiatric News</a>, March 2025.</span></p>
+    </div>
+    <div class="pub">
+      <p class="cite">Hecht, E. E., Rogers Flattery, C., Abdulla, M., Michlich, J., <span class="me">Radhakrishnan, L.</span>, Dooyema, J., Chavez Flores, A., Swardstrom, R., Rogers, F., Helen, J., Althammer, F., Kukekova, A. V., &amp; Sherwood, C. C. Hypothalamic oxytocin and vasopressin cell populations do not differ across selectively-bred silver fox lineages but covary with brain-wide structural organization. <span class="jrnl">Journal of Comparative Neurology</span>, under review.
+        <span class="note">I performed the stereological quantification and led the cell-counting project to completion after the graduate student who began it left the lab.</span></p>
+    </div>
+  </div>
+
+  <h2>A study of my own</h2>
+
+  <div class="project">
+    <h3>Can learning about bonobo female leadership reduce gender stereotypes in humans?</h3>
+    <p>Claims that male dominance is biologically mandated are remarkably durable, and they draw their authority from a selective reading of our closest relatives. Bonobos — as close to us as chimpanzees are — organise very differently.</p>
+    <p>I designed a study asking whether brief exposure to material on bonobo female leadership and coalition-building produces a measurable shift in gender-stereotype attitudes, assessed by Implicit Association Test and open-ended reflection. The aim is narrative change through the path of least resistance: not argument, but a wider set of facts about what evolution actually permits.</p>
+    <p>It began as a proposal for a graduate proseminar and I have kept working on it since, with input from faculty in primatology, evolutionary neuroscience, and affective neuroscience.</p>
+    <p class="status">Proposal and literature review complete · no data collected yet</p>
+  </div>
+
+  <h2>Teaching</h2>
+
+  <div class="rows">
+    <div><span class="h">Teaching Assistant, Human Evolutionary Biology</span><span class="d">HEB 50: Human Metabolism (Fall 2026) and Evolution of Friendship (2025–2026), Harvard University. Lectures, weekly discussion and laboratory sections, and analytic feedback on empirical critiques.</span></div>
+    <div><span class="h">Laboratory Assistant, ASPR Paleo Lab</span><span class="d">Peabody Museum of Archaeology and Ethnology. Osteological research and curation, and ethical repatriation logistics under NAGPRA.</span></div>
+  </div>
+
+  <h2>Before research</h2>
+
+  <div class="rows">
+    <div><span class="h">Team Leader, psychiatric assisted living facility</span><span class="d">Mental Health Association of South Central Kansas. I managed a residential facility for 30+ adults with chronic psychiatric conditions, most on the psychotic spectrum, including paranoid schizophrenia — conducting functional assessments and intake reviews, designing individualised care plans, delivering crisis intervention, and training staff. A substantial number of those residents were immigrants, and many spoke little or no English. It is the reason I think about assessment the way I do: I have watched what happens when a clinician and a patient do not share a frame for what is being described.</span></div>
+    <div><span class="h">Community work</span><span class="d">Capacity-building with Adivasi communities in Kerala through the Attappady Hill Area Development Society; children's education and welfare advocacy with Child Rights and You; co-founder of a South Asian parent affinity group working with school district leadership on culturally responsive practice.</span></div>
+  </div>
+
+  <h2>Languages &amp; methods</h2>
+
+  <p class="langs"><b>Languages.</b> English, Malayalam, Tamil, Hindi — enough to recruit, interview, and collect data in South Asian and diaspora communities without an interpreter.</p>
+  <p class="langs"><b>Methods.</b> Ecological momentary assessment and heart rate variability; MRI acquisition including pediatric protocols (MRI safety certified); immunohistochemistry and stereology; systematic review; IRB and IACUC protocol preparation; R and Python.</p>
+
+  <h2>Contact</h2>
+
+  <div class="contact">
+    <div><span class="k">Email</span><a href="mailto:lekshmi_radhakrishnan@fas.harvard.edu">lekshmi_radhakrishnan@fas.harvard.edu</a></div>
+    <div><span class="k">ORCID</span><a href="https://orcid.org/0009-0000-4714-7868">0009-0000-4714-7868</a></div>
+    <div><span class="k">CV</span><span class="v">Available on request</span></div>
+    <div><span class="k">Based in</span><span class="v">Greater Boston</span></div>
+  </div>
+
+  <footer>
+    <p class="places"><b>Places I have lived, in order:</b> Kerala · Washington, DC · Kerala · Wichita · Boston · Cincinnati · Houston · Los Angeles · Seattle · Exeter · Cambridge — so far.</p>
+    <p class="places" style="margin-top:10px">Twenty-eight countries across five continents, most of them alone, on one-way tickets and in youth hostels. It is the least formal training I have in what cultural difference actually feels like, and possibly the most useful.</p>
+  </footer>
+
+</div>
+</body>
+</html>
