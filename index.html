@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lekshmi Radhakrishnan</title>
-<meta name="description" content="Lekshmi Radhakrishnan studies how cultural context shapes the way psychological distress is expressed, understood, and treated.">
+<meta name="description" content="Lekshmi Radhakrishnan is interested in how the interpretive frames people inherit shape the way psychological distress is recognized and treated.">
 <meta name="author" content="Lekshmi Radhakrishnan">
 <link rel="canonical" href="https://lekshmiradhakrishnan.github.io/">
 
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://lekshmiradhakrishnan.github.io/">
 <meta property="og:title" content="Lekshmi Radhakrishnan">
-<meta property="og:description" content="Culturally responsive assessment and treatment of psychopathology.">
+<meta property="og:description" content="Classification accuracy in psychopathology: how inherited cultural frames shape the recognition and treatment of distress.">
 <meta property="og:image" content="https://lekshmiradhakrishnan.github.io/portrait.jpg">
 <meta name="twitter:card" content="summary">
 
@@ -40,239 +40,405 @@
   }
 
   *{box-sizing:border-box}
+  [hidden]{display:none!important}
+  html{scroll-behavior:smooth}
   body{
     background:var(--paper); color:var(--ink); margin:0;
     font-family:"Karla",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     font-size:16.5px; line-height:1.62;
     -webkit-font-smoothing:antialiased;
   }
-  .page{max-width:720px; margin:0 auto; padding-left:20px; padding-right:20px; padding-block:52px 92px}
+  a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent-soft)}
+  a:hover{border-bottom-color:var(--accent)}
+  a:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px}
+  cite{font-style:italic}
+  p{margin:0 0 18px}
+
+  /* --- top navigation --- */
+  .topbar{
+    position:sticky; top:0; z-index:10;
+    background:var(--paper);
+    background:color-mix(in srgb, var(--paper) 92%, transparent);
+    backdrop-filter:saturate(1.2) blur(6px); -webkit-backdrop-filter:saturate(1.2) blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-inner{
+    max-width:760px; margin:0 auto; padding:0 20px;
+    display:flex; align-items:center; justify-content:space-between; gap:12px 24px; flex-wrap:wrap;
+    min-height:58px;
+  }
+  .brand{
+    font-size:13px; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink); border:0; padding:6px 0;
+  }
+  .brand:hover{color:var(--accent)}
+  .nav{display:flex; gap:4px 22px; flex-wrap:wrap; margin:0; padding:0; list-style:none}
+  .nav a{
+    display:inline-block; padding:17px 0 15px; border:0;
+    border-bottom:2px solid transparent;
+    font-size:14.5px; font-weight:500; color:var(--ink-soft);
+  }
+  .nav a:hover{color:var(--ink)}
+  .nav a[aria-current="page"]{color:var(--ink); border-bottom-color:var(--accent)}
+  @media (max-width:520px){
+    .topbar-inner{padding-top:8px}
+    .brand{width:100%}
+    .nav{gap:4px 15px}
+    .nav a{padding:6px 0 10px; font-size:14px}
+  }
+
+  .page{max-width:760px; margin:0 auto; padding:44px 20px 72px}
+  section[data-tab]{scroll-margin-top:70px}
+
+  .tab-title{
+    font-family:"Spectral",Georgia,serif; font-weight:400;
+    font-size:clamp(28px,4.4vw,36px); line-height:1.2; letter-spacing:-.01em;
+    margin:0 0 10px;
+  }
+  .tab-intro{color:var(--ink-soft); max-width:62ch; margin:0 0 34px}
 
   /* --- masthead --- */
-  .masthead{display:flex; gap:22px; align-items:center; margin:0 0 44px}
+  .masthead{display:flex; gap:28px; align-items:center; margin:0 0 40px}
   .masthead img{
-    width:104px; height:104px; flex:0 0 auto;
-    border-radius:50%; object-fit:cover; object-position:center 22%;
-    border:1px solid var(--line);
+    width:168px; height:auto; aspect-ratio:800/911; flex:0 0 auto;
+    border-radius:6px; object-fit:cover;
+    border:1px solid var(--line); background:var(--line-soft);
   }
   .masthead .who{min-width:0}
-  .name{
-    font-family:"Karla",sans-serif; font-size:14px; font-weight:600;
-    letter-spacing:.1em; text-transform:uppercase; margin:0 0 5px;
-  }
+  .name{font-family:"Spectral",Georgia,serif; font-weight:400; font-size:clamp(26px,4vw,32px); line-height:1.15; letter-spacing:-.01em; margin:0 0 6px}
   .role{font-size:14.5px; color:var(--ink-soft); margin:0; line-height:1.5}
   .role a{color:var(--ink-soft); border-bottom:1px solid var(--line)}
   .role a:hover{color:var(--accent); border-bottom-color:var(--accent)}
   @media (max-width:480px){
-    .masthead{flex-direction:column; align-items:flex-start; gap:16px}
-    .masthead img{width:88px; height:88px}
+    .masthead{flex-direction:column; align-items:flex-start; gap:18px}
+    .masthead img{width:150px}
   }
 
-  /* --- the question --- */
   .thesis{
     font-family:"Spectral",Georgia,serif; font-weight:300;
     font-size:clamp(25px,4.6vw,38px); line-height:1.24; letter-spacing:-.012em;
     margin:0 0 30px; text-wrap:balance; max-width:22em;
   }
   .thesis em{font-style:italic; font-weight:400}
+  .lede{font-size:17px; margin:0 0 20px; max-width:62ch}
 
-  .lede{font-size:17px; margin:0 0 20px; max-width:60ch}
-  p{margin:0 0 18px}
-  a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent-soft)}
-  a:hover{border-bottom-color:var(--accent)}
-  a:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px}
-  cite{font-style:italic}
-
-  /* --- sections --- */
   h2{
-    font-family:"Karla",sans-serif; font-size:12px; font-weight:600;
+    font-size:12px; font-weight:600;
     letter-spacing:.13em; text-transform:uppercase; color:var(--ink-faint);
-    margin:58px 0 20px; padding-bottom:9px; border-bottom:1px solid var(--line);
+    margin:52px 0 18px; padding-bottom:9px; border-bottom:1px solid var(--line);
   }
+  .tab-title + h2{margin-top:30px}
+  .about-body h2{margin-top:52px}
 
-  /* --- vantages: the through-line --- */
-  .vantage{display:flex; flex-direction:column; gap:22px}
-  .vantage > div{display:grid; grid-template-columns:118px 1fr; gap:4px 20px; align-items:baseline}
-  .vantage .level{
-    font-family:"Karla",sans-serif; font-size:11px; font-weight:600;
-    letter-spacing:.1em; text-transform:uppercase; color:var(--accent);
-    padding-top:5px;
+  /* --- research entries --- */
+  .labs{display:flex; flex-direction:column; gap:0}
+  .lab{
+    display:grid; grid-template-columns:118px 1fr; gap:4px 20px; align-items:baseline;
+    padding:22px 0; border-top:1px solid var(--line-soft);
   }
-  .vantage .body{margin:0}
-  .vantage .lab{font-weight:600}
-  .vantage .lab .pi{font-weight:400; color:var(--ink-soft)}
-  .vantage .what{display:block; color:var(--ink-soft); font-size:15.5px; margin-top:2px}
+  .lab:first-child{border-top:0; padding-top:4px}
+  .lab .level{
+    font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--accent); padding-top:4px;
+  }
+  .lab .name-line{margin:0; font-weight:600}
+  .lab .name-line .pi{font-weight:400; color:var(--ink-soft)}
+  .lab .when{display:block; font-size:13.5px; color:var(--ink-faint); margin:2px 0 6px}
+  .lab .what{margin:0; color:var(--ink-soft); font-size:15.5px}
   @media (max-width:560px){
-    .vantage > div{grid-template-columns:1fr; gap:3px}
-    .vantage .level{padding-top:0}
+    .lab{grid-template-columns:1fr; gap:3px}
+    .lab .level{padding-top:0}
   }
-  .synthesis{margin-top:26px; color:var(--ink-soft); font-size:15.5px; max-width:60ch}
 
   /* --- publications --- */
-  .pubs{display:flex; flex-direction:column; gap:22px}
-  .pub{font-size:15.5px; line-height:1.55}
-  .pub .cite{margin:0}
+  .pubs{display:flex; flex-direction:column; gap:22px; margin-bottom:8px}
+  .pub{font-size:15.5px; line-height:1.55; margin:0}
   .pub .me{font-weight:600}
   .pub .jrnl{font-style:italic}
   .pub .note{display:block; color:var(--ink-faint); font-size:14px; margin-top:5px}
   .pub .note a{color:var(--ink-soft)}
 
-  /* --- the project block --- */
-  .project{
-    background:var(--raise); border:1px solid var(--line);
-    border-left:2px solid var(--accent); border-radius:2px;
-    padding:22px 24px; margin:0;
+  /* --- CV tab --- */
+  .cv-actions{display:flex; flex-wrap:wrap; gap:12px 18px; align-items:center; margin:0 0 22px}
+  .btn{
+    display:inline-block; padding:9px 16px; border-radius:3px;
+    background:var(--accent); color:var(--paper); border:0;
+    font-size:14.5px; font-weight:600;
   }
-  .project h3{
-    font-family:"Spectral",Georgia,serif; font-weight:400; font-style:italic;
-    font-size:19.5px; line-height:1.3; margin:0 0 12px; text-wrap:balance;
+  .btn:hover{opacity:.9}
+  .pdf{
+    display:block; width:100%; height:80vh; min-height:520px;
+    border:1px solid var(--line); border-radius:3px; background:var(--raise);
   }
-  .project p{font-size:15.5px; margin:0 0 12px}
-  .project p:last-child{margin-bottom:0}
-  .project .status{
-    font-family:"Karla",sans-serif; font-size:11px; font-weight:600;
-    letter-spacing:.09em; text-transform:uppercase; color:var(--ink-faint);
+  .pdf p{padding:24px; margin:0; color:var(--ink-soft)}
+  .pdf-note{display:none; color:var(--ink-soft); font-size:15px}
+  @media (max-width:640px){ .pdf{display:none} .pdf-note{display:block} }
+
+  .langs{font-size:15.5px; color:var(--ink-soft); max-width:62ch}
+  .places{font-size:13.5px; color:var(--ink-faint); margin:0; line-height:1.75; max-width:68ch}
+  .places b{color:var(--ink-soft); font-weight:500}
+
+  .next{margin:44px 0 0; font-size:15px}
+
+  /* --- photos --- */
+  .shot{margin:0; display:flex; flex-direction:column; justify-content:flex-start; align-self:start; padding:0; border:0; background:none; cursor:zoom-in; text-align:left; font:inherit; color:inherit; width:100%}
+  .shot img{display:block; width:100%; height:auto; aspect-ratio:1; object-fit:cover; border-radius:4px; background:var(--line-soft); transition:opacity .15s}
+  .shot:hover img{opacity:.9}
+  .shot:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:4px}
+  .shot .cap{display:block; font-size:12.5px; color:var(--ink-faint); margin-top:6px; line-height:1.4}
+  .gallery{display:grid; grid-template-columns:repeat(4,1fr); gap:18px 14px; margin:22px 0 0; align-items:start}
+  .gallery.three{grid-template-columns:repeat(3,1fr)}
+  @media (max-width:640px){ .gallery, .gallery.three{grid-template-columns:repeat(2,1fr); gap:12px} }
+
+  .research-head{display:grid; grid-template-columns:1fr 250px; gap:28px; align-items:start; margin:0 0 34px}
+  .research-head .tab-intro{margin:0}
+  .research-head .shot img{aspect-ratio:4/3}
+  @media (max-width:600px){ .research-head{grid-template-columns:1fr} .research-head .shot{max-width:320px} }
+
+  .lab-photos{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:16px 0 2px; max-width:460px; align-items:start}
+  .lab-photos .shot img{aspect-ratio:4/3}
+  .lab-photos.one{grid-template-columns:1fr; max-width:340px}
+  .lab-photos.three{grid-template-columns:repeat(3,1fr); max-width:100%}
+  .shot.wide{grid-column:span 2}
+  .shot.wide img{aspect-ratio:2.08/1}
+
+  .lightbox{border:0; padding:0; background:transparent; max-width:min(92vw,1100px); max-height:92vh}
+  .lightbox::backdrop{background:rgba(10,11,13,.82)}
+  .lightbox img{display:block; max-width:min(92vw,1100px); max-height:84vh; width:auto; height:auto; border-radius:4px; margin:0 auto}
+  .lightbox p{color:#E6E7EA; font-size:14px; text-align:center; margin:10px 0 0}
+  .lightbox button{position:fixed; top:14px; right:18px; background:rgba(0,0,0,.4); color:#fff; border:0; border-radius:50%; width:40px; height:40px; font-size:22px; line-height:40px; cursor:pointer}
+
+  footer{border-top:1px solid var(--line)}
+  .footer-inner{
+    max-width:760px; margin:0 auto; padding:22px 20px 40px;
+    display:flex; flex-wrap:wrap; gap:8px 26px; font-size:14px; color:var(--ink-faint);
   }
+  .footer-inner a{color:var(--ink-soft); border-bottom-color:var(--line)}
 
-  /* --- compact lists --- */
-  .rows{display:flex; flex-direction:column; gap:15px}
-  .rows > div{font-size:15.5px}
-  .rows .h{font-weight:600}
-  .rows .d{display:block; color:var(--ink-soft); font-size:15px; margin-top:1px}
-
-  .aside{
-    font-size:14.5px; color:var(--ink-soft); max-width:58ch;
-    border-left:2px solid var(--line); padding-left:17px;
-    margin:0 0 20px;
-  }
-  .aside cite{font-style:italic}
-
-  .langs{font-size:15.5px; color:var(--ink-soft)}
-  .langs b{color:var(--ink); font-weight:600}
-
-  /* --- contact --- */
-  .contact{display:flex; flex-wrap:wrap; gap:14px 30px; font-size:15.5px}
-  .contact div{display:flex; flex-direction:column}
-  .contact .k{font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:2px}
-  .contact .v{color:var(--ink-soft)}
-
-  footer{margin-top:64px; padding-top:20px; border-top:1px solid var(--line)}
-  footer .places{
-    font-size:13.5px; color:var(--ink-faint); margin:0; line-height:1.75;
-  }
-  footer .places b{color:var(--ink-soft); font-weight:500}
-
-  @media (prefers-reduced-motion:reduce){*{transition:none!important; animation:none!important}}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} *{transition:none!important; animation:none!important}}
 </style>
 </head>
 <body>
-<div class="page">
 
-  <div class="masthead">
-    <img src="portrait.jpg" alt="Lekshmi Radhakrishnan" width="520" height="520">
-    <div class="who">
-      <p class="name">Lekshmi Radhakrishnan</p>
-      <p class="role">Research Assistant, <a href="https://psychology.fas.harvard.edu/people/joshua-conrad-jackson">Cultural Dynamics Lab</a><br>ALM candidate in Psychology, Harvard University</p>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#about">Lekshmi Radhakrishnan</a>
+    <nav aria-label="Sections">
+      <ul class="nav">
+        <li><a href="#about" data-to="about">About</a></li>
+        <li><a href="#research" data-to="research">Research</a></li>
+        <li><a href="#publications" data-to="publications">Publications</a></li>
+        <li><a href="#cv" data-to="cv">CV</a></li>
+        <li><a href="#elsewhere" data-to="elsewhere">Elsewhere</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+
+  <!-- ===================== ABOUT ===================== -->
+  <section id="about" data-tab class="about-body">
+
+    <div class="masthead">
+      <img src="portrait.jpg" alt="Lekshmi Radhakrishnan" width="800" height="911">
+      <div class="who">
+        <h1 class="name">Lekshmi Radhakrishnan</h1>
+        <p class="role">Research Assistant, <a href="https://cultural-dynamics-lab.github.io/">Cultural Dynamics Lab</a><br>ALM candidate in Psychology, Harvard University</p>
+      </div>
     </div>
-  </div>
 
-  <p class="thesis">Many people never try therapy because they expect to spend it <em>explaining themselves</em> rather than being helped.</p>
+    <p class="thesis">Many people never seek therapy because they expect to spend it <em>explaining themselves</em> rather than being helped.</p>
 
-  <p class="lede">I study how cultural context shapes the way psychological distress is recognized and treated. Culture here means the interpretive frames people inherit — transmitted across generations rather than chosen — and my interest is in classification accuracy: cultural distance between clinician and patient produces error in both directions, pathologising what is culturally ordinary and missing genuine illness expressed in unfamiliar terms.</p>
+    <p class="lede">I'm interested in how the interpretive frames people inherit — transmitted across generations rather than chosen — shape the way psychological distress is recognized and treated. My focus is classification accuracy: cultural distance between clinician and patient can produce error in both directions, pathologizing what is culturally ordinary and missing genuine illness expressed in unfamiliar terms. The pattern is well documented in psychotic-spectrum illness, where diagnostic and treatment disparities across racial and ethnic groups are established, and that is also where my clinical grounding lies.</p>
 
-  <p class="lede">That question isn't abstract for me. I grew up between Kerala and the United States, and I have spent most of my life watching people in one culture fail to make sense of perspectives that another treats as obvious. In clinical work, that gap has consequences: people decide the explaining isn't worth it, and quietly go without care.</p>
+    <p class="lede">That question isn't abstract for me. I grew up between Kerala and the United States, and I have spent most of my life watching people in one culture fail to make sense of perspectives that another treats as obvious. In clinical work, that gap has consequences: people decide the explaining isn't worth it, and quietly go without care.</p>
 
-  <p class="aside">Some of this goes back to working with Mona Weissmark on <cite>Seeing the Other Side: Shifting Perceptions</cite>, on the psychology of perspective-taking across group and cultural lines. It gave me a working framework for what it takes to see from another position, and introduced me to research on transgenerational trauma and on why certain frames are so hard for people to step outside.</p>
+    <p class="lede">My personal questions and clinical experience found a framework while I was working with Dr. Mona Weissmark on <cite>Seeing the Other Side: Shifting Perceptions</cite>, on the psychology of perspective-taking across group and cultural lines. It gave me a way to think about what it takes to see from another position, and introduced me to research on transgenerational trauma and on why certain frames are so hard for people to step outside.</p>
 
-  <h2>Four vantages on one question</h2>
-
-  <div class="vantage">
-    <div>
-      <span class="level">Cultural</span>
-      <p class="body"><span class="lab">Cultural Dynamics Lab <span class="pi">— Joshua Conrad Jackson</span></span>
-        <span class="what">How belief, moral judgment, and emotion vary and change across societies. The upstream question: what is culture actually doing to the mind?</span></p>
+    <h2>Clinical background</h2>
+    <p class="lede">For two years I managed a residential facility run by the Mental Health Association of South Central Kansas, home to more than 30 adults with chronic psychiatric conditions, most on the psychotic spectrum. A substantial number of residents were immigrants, and many spoke little or no English. It is the reason I think about assessment the way I do: I have watched what happens when a clinician and a patient do not share a frame for what is being described.</p>
+    <div class="lab-photos one">
+      <button class="shot" type="button" data-full="images/lab-corridor.jpg" aria-label="Enlarge photo"><img src="images/lab-corridor-sm.jpg" alt="Lekshmi smiling in a building corridor at Harvard" loading="lazy"></button>
     </div>
-    <div>
-      <span class="level">Clinical</span>
-      <p class="body"><span class="lab">McNally Lab <span class="pi">— Richard J. McNally, thesis advisor</span></span>
-        <span class="what">Anxiety and obsessive-compulsive spectrum conditions in the perinatal period, measured in daily life through ambulatory assessment and heart rate variability.</span></p>
+
+    <h2>Languages</h2>
+    <p class="langs">I speak English, Malayalam, Tamil, and Hindi, and can recruit, interview, and run fieldwork in South Asian and diaspora communities without an interpreter.</p>
+    <div class="lab-photos one">
+      <button class="shot" type="button" data-full="images/kerala-street.jpg" data-cap="Thiruvananthapuram, Kerala" aria-label="Enlarge photo: Thiruvananthapuram, Kerala"><img src="images/kerala-street-sm.jpg" alt="Lekshmi crouching beside a friendly street dog next to an autorickshaw" loading="lazy"><span class="cap">Thiruvananthapuram, Kerala</span></button>
     </div>
-    <div>
-      <span class="level">Structural</span>
-      <p class="body"><span class="lab">Center for Bioethics, Harvard Medical School <span class="pi">— Rachel C. Conrad</span></span>
-        <span class="what">Who can reach care at all. I helped run a multi-state study of how licensure law blocks students from psychiatric treatment, and presented the findings to state medical boards and health policy groups.</span></p>
+
+    <p class="next"><a href="#research">Research →</a></p>
+  </section>
+
+  <!-- ===================== RESEARCH ===================== -->
+  <section id="research" data-tab>
+    <h1 class="tab-title">Research</h1>
+    <div class="research-head">
+  <p class="tab-intro">My training so far spans four levels of the problem: culture, clinical phenomena, structure, and biology. A person who is misread in a clinic, or who never reaches one, is being acted on at all four at once, and I don't think you can fix the problem from any one level alone.</p>
+      <button class="shot" type="button" data-full="images/cbs-neuroimaging.jpg" data-cap="Center for Brain Science Neuroimaging, Harvard" aria-label="Enlarge photo: Center for Brain Science Neuroimaging, Harvard"><img src="images/cbs-neuroimaging-sm.jpg" alt="Lekshmi at the Center for Brain Science Neuroimaging sign" loading="lazy" width="720" height="720"><span class="cap">Center for Brain Science Neuroimaging, Harvard</span></button>
     </div>
-    <div>
-      <span class="level">Biological</span>
-      <p class="body"><span class="lab">Hecht Lab &amp; Surbeck Pan Lab <span class="pi">— Erin Hecht, Martin Surbeck</span></span>
-        <span class="what">Comparative neuroscience and primatology of social bonding — where our claims about human nature come from, and how much weight they can carry.</span></p>
+
+    <div class="labs">
+      <div class="lab">
+        <span class="level">Cultural</span>
+        <div>
+          <p class="name-line"><a href="https://cultural-dynamics-lab.github.io/">Cultural Dynamics Lab</a> <span class="pi">— Joshua Conrad Jackson</span></p>
+          <span class="when">Research Assistant · September 2026 – present</span>
+          <p class="what">How historical and social change reshapes emotion, moral judgment, and belief — including when people fall back on abstract social categories to read each other. The upstream question: what is culture actually doing to the mind?</p>
+          <div class="lab-photos one">
+            <button class="shot" type="button" data-full="images/cultural-dynamics-lab.jpg" aria-label="Enlarge photo"><img src="images/cultural-dynamics-lab-sm.jpg" alt="Lekshmi with members of the Cultural Dynamics Lab working at a café table" loading="lazy"></button>
+          </div>
+        </div>
+      </div>
+      <div class="lab">
+        <span class="level">Clinical</span>
+        <div>
+          <p class="name-line">McNally Lab <span class="pi">— Richard J. McNally</span></p>
+          <span class="when">Thesis student and Research Assistant · 2026 – present</span>
+          <p class="what">Anxiety and obsessive-compulsive spectrum conditions in the perinatal period, measured in daily life through ambulatory assessment and heart rate variability.</p>
+        </div>
+      </div>
+      <div class="lab">
+        <span class="level">Structural</span>
+        <div>
+          <p class="name-line">Center for Bioethics, Harvard Medical School <span class="pi">— Rachel C. Conrad</span></p>
+          <span class="when">Research Assistant · 2023 – 2024</span>
+          <p class="what">Who can reach care at all. I helped refine and run a multi-state study of how licensure law limits students' access to psychiatric treatment, and presented the findings to state medical boards and health policy groups.</p>
+        </div>
+      </div>
+      <div class="lab">
+        <span class="level">Biological</span>
+        <div>
+          <p class="name-line">Hecht Lab &amp; Surbeck Pan Lab <span class="pi">— Erin Hecht, Martin Surbeck</span></p>
+          <span class="when">Research Assistant, Hecht Lab · 2024 – 2026 &nbsp;·&nbsp; Research Affiliate, Pan Lab · 2025 – 2026</span>
+          <p class="what">Comparative neuroscience and primatology of social bonding — where our claims about human nature come from, and how much weight they can carry. Human and canine MRI acquisition, including pediatric protocols.</p>
+          <div class="lab-photos">
+            <button class="shot" type="button" data-full="images/microscope.jpg" aria-label="Enlarge photo"><img src="images/microscope-sm.jpg" alt="Lekshmi in a sari working at a microscope workstation" loading="lazy"></button>
+            <button class="shot" type="button" data-full="images/spot-robot.jpg" aria-label="Enlarge photo"><img src="images/spot-robot-sm.jpg" alt="Lekshmi smiling beside a yellow four-legged robot" loading="lazy"></button>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <p class="synthesis">Culture, clinical phenomena, structure, biology. A person who is misread in a clinic, or who never reaches one, is being acted on at all four levels at once, and I don't think you can fix the problem from only one of them.</p>
-
-  <h2>Publications</h2>
-
-  <div class="pubs">
-    <div class="pub">
-      <p class="cite">Conrad, R. C., Koire, A., <span class="me">Radhakrishnan, L.</span>, Charroux, A., Klingler, S., Benson, N. M., &amp; Boyd, J. W. (2025). Impact of state medical licensure exemptions and telehealth registries on college students' access to psychiatric care. <span class="jrnl">Psychiatric Services, 76</span>(6), 602–605. <a href="https://doi.org/10.1176/appi.ps.20240225">doi:10.1176/appi.ps.20240225</a>
-        <span class="note">Covered in <a href="https://doi.org/10.1176/appi.pn.2025.03.3.42">Psychiatric News</a>, March 2025.</span></p>
+    <h2>Teaching</h2>
+    <div class="gallery three">
+      <button class="shot" type="button" data-full="images/friendship-course.jpg" data-cap="Teaching assistant, HEB 140: Evolution of Friendship, Harvard" aria-label="Enlarge photo: Teaching assistant, HEB 140: Evolution of Friendship, Harvard"><img src="images/friendship-course-sm.jpg" alt="Lekshmi at a lectern holding the book Friendship" loading="lazy"><span class="cap">Teaching assistant, HEB 140: Evolution of Friendship, Harvard</span></button>
+      <button class="shot" type="button" data-full="images/oberwesel-lecture.jpg" data-cap="Guest lecture at a science camp in Oberwesel, Germany" aria-label="Enlarge photo: Guest lecture at a science camp in Oberwesel, Germany"><img src="images/oberwesel-lecture-sm.jpg" alt="Lekshmi lecturing on information transmission in neurons" loading="lazy"><span class="cap">Guest lecture at a science camp in Oberwesel, Germany</span></button>
     </div>
-    <div class="pub">
-      <p class="cite">Hecht, E. E., Rogers Flattery, C., Abdulla, M., Michlich, J., <span class="me">Radhakrishnan, L.</span>, Dooyema, J., Chavez Flores, A., Swardstrom, R., Rogers, F., Helen, J., Althammer, F., Kukekova, A. V., &amp; Sherwood, C. C. Hypothalamic oxytocin and vasopressin cell populations do not differ across selectively-bred silver fox lineages but covary with brain-wide structural organization. <span class="jrnl">Journal of Comparative Neurology</span>, minor revision submitted September 2026.
-        <span class="note">I performed the stereological quantification and brought the cell-counting project to completion after it had changed hands more than once and the graduate student then running it left the lab.</span></p>
+
+    <p class="next"><a href="#publications">Publications →</a></p>
+  </section>
+
+  <!-- ===================== PUBLICATIONS ===================== -->
+  <section id="publications" data-tab>
+    <h1 class="tab-title">Publications</h1>
+
+    <h2>Peer-reviewed</h2>
+    <div class="pubs">
+      <p class="pub">Conrad, R. C., Koire, A., <span class="me">Radhakrishnan, L.</span>, Charroux, A., Klingler, S., Benson, N. M., &amp; Boyd, J. W. (2025). Impact of state medical licensure exemptions and telehealth registries on college students' access to psychiatric care. <span class="jrnl">Psychiatric Services, 76</span>(6), 602–605. <a href="https://doi.org/10.1176/appi.ps.20240225">doi:10.1176/appi.ps.20240225</a>
+        <span class="note">Covered in <a href="https://alert.psychnews.org/2025/02/many-psychiatrists-unaware-of-out-of.html">Psychiatric News Alert</a>, February 2025.</span></p>
     </div>
+
+    <h2>Under review</h2>
+    <div class="pubs">
+      <p class="pub">Hecht, E. E., Rogers Flattery, C., Abdulla, M., Michlich, J., <span class="me">Radhakrishnan, L.</span>, Dooyema, J., Chavez Flores, A., Swardstrom, R., Rogers, F., Helen, J., Althammer, F., Kukekova, A. V., &amp; Sherwood, C. C. Hypothalamic oxytocin and vasopressin cell populations do not differ across selectively-bred silver fox lineages but covary with brain-wide structural organization. <span class="jrnl">Journal of Comparative Neurology</span>, revised manuscript resubmitted September 2026.
+        <span class="note">I performed the stereological quantification and brought the cell-counting project to completion after it had changed hands more than once.</span></p>
+    </div>
+
+    <h2>In preparation</h2>
+    <div class="pubs">
+      <p class="pub">Cross-lagged panel network analysis of ecological momentary assessment data on obsessive-compulsive symptoms in the perinatal period.
+        <span class="note">Coauthor, McNally Lab.</span></p>
+    </div>
+
+    <h2>Invited policy briefings</h2>
+    <div class="pubs">
+      <p class="pub"><span class="me">Radhakrishnan, L.</span>, &amp; Conrad, R. C. (2023). Interstate licensure barriers to college students' access to psychiatric care.
+        <span class="note">A series of briefings to regulators, health-policy organizations, insurers, and legal experts, including the Federation of State Medical Boards, the American Medical Association, and the Kennedy Forum. Full list in the <a href="#cv">CV</a>.</span></p>
+    </div>
+
+    <p class="next"><a href="#cv">CV →</a></p>
+  </section>
+
+  <!-- ===================== CV ===================== -->
+  <section id="cv" data-tab>
+    <h1 class="tab-title">CV</h1>
+    <div class="cv-actions">
+      <a class="btn" href="Lekshmi_Radhakrishnan_CV.pdf" download>Download CV (PDF)</a>
+      <a href="Lekshmi_Radhakrishnan_CV.pdf" target="_blank" rel="noopener">Open in a new tab</a>
+    </div>
+    <p class="pdf-note">On a phone, use the buttons above to open or download the CV.</p>
+    <object class="pdf" data="Lekshmi_Radhakrishnan_CV.pdf" type="application/pdf" aria-label="Lekshmi Radhakrishnan CV">
+      <p>Your browser can't show the PDF here. <a href="Lekshmi_Radhakrishnan_CV.pdf" download>Download the CV</a> instead.</p>
+    </object>
+    <p class="next"><a href="#elsewhere">Elsewhere →</a></p>
+  </section>
+
+  <!-- ===================== ELSEWHERE ===================== -->
+  <section id="elsewhere" data-tab>
+    <h1 class="tab-title">Elsewhere</h1>
+    <p class="tab-intro">The least formal training I have in what cultural difference actually feels like — and possibly the most useful. I have lived in India and across the United States, and traveled to twenty-eight countries on five continents, most of them alone, on one-way tickets with no route planned — where I went next decided by the next cheapest fare and the people I met along the way.</p>
+    <div class="gallery">
+      <button class="shot" type="button" data-full="images/ireland.jpg" data-cap="Ireland" aria-label="Enlarge photo: Ireland"><img src="images/ireland-sm.jpg" alt="Lekshmi on a sea cliff at sunset" loading="lazy"><span class="cap">Ireland</span></button>
+      <button class="shot" type="button" data-full="images/kenya.jpg" data-cap="Kenya" aria-label="Enlarge photo: Kenya"><img src="images/kenya-sm.jpg" alt="Lekshmi photographing Kilimanjaro across the savanna" loading="lazy"><span class="cap">Kenya</span></button>
+      <button class="shot" type="button" data-full="images/rapanui.jpg" data-cap="Rapa Nui" aria-label="Enlarge photo: Rapa Nui"><img src="images/rapanui-sm.jpg" alt="Lekshmi beside a moai on Rapa Nui" loading="lazy"><span class="cap">Rapa Nui</span></button>
+      <button class="shot" type="button" data-full="images/hawaii.jpg" data-cap="Hanauma Bay, Hawaiʻi" aria-label="Enlarge photo: Hanauma Bay, Hawaiʻi"><img src="images/hawaii-sm.jpg" alt="Lekshmi on a hillside above a turquoise bay" loading="lazy"><span class="cap">Hanauma Bay, Hawaiʻi</span></button>
+      <button class="shot" type="button" data-full="images/berlin.jpg" data-cap="Berlin" aria-label="Enlarge photo: Berlin"><img src="images/berlin-sm.jpg" alt="Lekshmi at the East Side Gallery, Berlin" loading="lazy"><span class="cap">Berlin</span></button>
+      <button class="shot" type="button" data-full="images/prague.jpg" data-cap="Prague" aria-label="Enlarge photo: Prague"><img src="images/prague-sm.jpg" alt="Lekshmi by a Christmas tree below Prague Castle" loading="lazy"><span class="cap">Prague</span></button>
+      <button class="shot" type="button" data-full="images/zurich.jpg" data-cap="Zürich" aria-label="Enlarge photo: Zürich"><img src="images/zurich-sm.jpg" alt="Lekshmi on a bridge in Zürich" loading="lazy"><span class="cap">Zürich</span></button>
+      <button class="shot" type="button" data-full="images/trail.jpg" data-cap="Poo Poo Point, West Tiger Mountain, Washington" aria-label="Enlarge photo: Poo Poo Point, West Tiger Mountain, Washington"><img src="images/trail-sm.jpg" alt="Lekshmi with a white dog on a rocky mountain overlook" loading="lazy"><span class="cap">Poo Poo Point, West Tiger Mountain, Washington</span></button>
+    </div>
+  </section>
+
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <a href="mailto:lekshmi_radhakrishnan@fas.harvard.edu">lekshmi_radhakrishnan@fas.harvard.edu</a>
+    <span>ORCID <a href="https://orcid.org/0009-0000-4714-7868">0009-0000-4714-7868</a></span>
+    <span>Greater Boston</span>
   </div>
+</footer>
 
-  <h2>Independent research</h2>
+<dialog class="lightbox" id="lightbox" aria-label="Photo">
+  <button type="button" aria-label="Close" data-close>×</button>
+  <img alt="">
+  <p></p>
+</dialog>
 
-  <div class="project">
-    <h3>Does evidence about a closely related species change what people take to be biologically fixed?</h3>
-    <p>Beliefs about what human nature requires are remarkably durable, and they often draw their authority from a selective reading of our closest relatives. Bonobos are as closely related to us as chimpanzees are, and they organise very differently — which makes them a useful test of whether beliefs of that kind track the evidence at all.</p>
-    <p>I designed a study asking whether brief exposure to material on bonobo social organisation, including female coalitions and leadership, produces a measurable shift in beliefs about sex differences, assessed by Implicit Association Test and open-ended reflection. The underlying question is about belief revision: whether a claim people treat as settled by biology moves when the biological evidence turns out to be more varied than assumed.</p>
-    <p>Since drafting it I have consulted faculty in primatology, evolutionary neuroscience, and affective neuroscience on the design.</p>
-    <p>The obvious objection is that brief interventions on implicit measures rarely hold. Lai and colleagues (2016) tested nine of them across 6,321 participants: all nine reduced implicit racial preference immediately, none survived a delay of hours to days. I treat that as the design constraint rather than a reason not to run it, which is why the protocol pairs the implicit measure with open-ended reflection, and why the question worth asking is whether a belief about what evolution permits behaves differently from an evaluative association.</p>
-    <p class="status">Proposal and literature review complete · no data collected yet</p>
-  </div>
-
-  <h2>Teaching</h2>
-
-  <div class="rows">
-    <div><span class="h">Teaching Assistant, Human Evolutionary Biology</span><span class="d">HEB 50: Human Metabolism (Fall 2026) and HEB 140: Evolution of Friendship (2025–2026), Harvard University. Lectures, weekly discussion and laboratory sections, and analytic feedback on empirical critiques.</span></div>
-  </div>
-
-  <h2>Paleoanthropology</h2>
-
-  <div class="rows">
-    <div><span class="h">Laboratory Assistant, ASPR Paleo Lab</span><span class="d">Peabody Museum of Archaeology and Ethnology, Harvard University. Osteological research and curation, and repatriation logistics under NAGPRA. I came for the lab's Siwalik project — the Miocene sequence from Pakistan, synthesised in <cite>At the Foot of the Himalayas</cite> (Johns Hopkins, 2025) — and for what fossils can and cannot tell us about the evolution of behavior.</span></div>
-  </div>
-
-  <h2>Clinical and community work</h2>
-
-  <div class="rows">
-    <div><span class="h">Team Leader, psychiatric assisted living facility</span><span class="d">Mental Health Association of South Central Kansas. I managed a residential facility for 30+ adults with chronic psychiatric conditions, most on the psychotic spectrum, including paranoid schizophrenia — conducting functional assessments and intake reviews, designing individualised care plans, delivering crisis intervention, and training staff. A substantial number of those residents were immigrants, and many spoke little or no English. It is the reason I think about assessment the way I do: I have watched what happens when a clinician and a patient do not share a frame for what is being described.</span></div>
-    <div><span class="h">Community work</span><span class="d">Capacity-building with Adivasi communities in Kerala through the Attappady Hill Area Development Society; children's education and welfare advocacy with Child Rights and You; co-founder of a South Asian parent affinity group working with school district leadership on culturally responsive practice.</span></div>
-  </div>
-
-  <h2>Languages &amp; methods</h2>
-
-  <p class="langs"><b>Languages.</b> English, Malayalam, Tamil, and Hindi — all four are working languages, which means fieldwork in South Asian and diaspora communities without an interpreter.</p>
-  <p class="langs"><b>Methods.</b> Ecological momentary assessment and heart rate variability; MRI acquisition including pediatric protocols (MRI safety certified); immunohistochemistry and stereology; systematic review; IRB and IACUC protocol preparation; R and Python.</p>
-
-  <h2>Contact</h2>
-
-  <div class="contact">
-    <div><span class="k">Email</span><a href="mailto:lekshmi_radhakrishnan@fas.harvard.edu">lekshmi_radhakrishnan@fas.harvard.edu</a></div>
-    <div><span class="k">ORCID</span><a href="https://orcid.org/0009-0000-4714-7868">0009-0000-4714-7868</a></div>
-    <div><span class="k">CV</span><a href="Lekshmi_Radhakrishnan_CV.pdf">Download (PDF)</a></div>
-    <div><span class="k">Based in</span><span class="v">Greater Boston</span></div>
-  </div>
-
-  <footer>
-    <p class="places"><b>Places I have lived, in order:</b> Kerala · Washington, DC · Kerala · Wichita · Boston · Cincinnati · Houston · Los Angeles · Seattle · Exeter · Cambridge — so far.</p>
-    <p class="places" style="margin-top:10px"><b>Places I have travelled:</b> twenty-eight countries across five continents, most of them alone, on one-way tickets with no route planned — where I went next decided by the next cheapest fare, or by the people I met along the way. It is the least formal training I have in what cultural difference actually feels like, and possibly the most useful.</p>
-  </footer>
-
-</div>
+<script>
+(function () {
+  var lb = document.getElementById('lightbox');
+  if (lb && lb.showModal) {
+    var lbImg = lb.querySelector('img'), lbCap = lb.querySelector('p');
+    document.querySelectorAll('.shot[data-full]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        lbImg.src = b.getAttribute('data-full');
+        lbImg.alt = b.querySelector('img').alt;
+        lbCap.textContent = b.getAttribute('data-cap') || '';
+        lb.showModal();
+      });
+    });
+    lb.addEventListener('click', function () { lb.close(); });
+  }
+})();
+(function () {
+  var tabs = ['about', 'research', 'publications', 'cv', 'elsewhere'];
+  function show(scroll) {
+    var id = (location.hash || '#about').slice(1);
+    if (tabs.indexOf(id) === -1) id = 'about';
+    document.querySelectorAll('section[data-tab]').forEach(function (s) { s.hidden = (s.id !== id); });
+    document.querySelectorAll('.nav a[data-to]').forEach(function (a) {
+      if (a.getAttribute('data-to') === id) a.setAttribute('aria-current', 'page');
+      else a.removeAttribute('aria-current');
+    });
+    if (scroll) window.scrollTo(0, 0);
+  }
+  window.addEventListener('hashchange', function () { show(true); });
+  show(false);
+})();
+</script>
 </body>
 </html>

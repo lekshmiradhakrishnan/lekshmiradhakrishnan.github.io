@@ -3,7 +3,9 @@
 Personal academic homepage. Plain HTML — no build step, no dependencies.
 
 - `index.html` — the whole site
-- `portrait.jpg` — headshot (520×520)
+- `portrait.jpg` — headshot (800×911)
+- `images/` — website photos (`name.jpg` full size for the enlarged view, `name-sm.jpg` for the page)
+- `Lekshmi_Radhakrishnan_CV.pdf` — public CV shown on the CV tab
 
 ## To edit
 
