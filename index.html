@@ -207,22 +207,6 @@
   .shot.wide{grid-column:span 2}
   .shot.wide img{aspect-ratio:2.08/1}
 
-  .maps{margin:44px 0 0}
-  .map-switch{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 16px}
-  .map-switch button{
-    font:inherit; font-size:13.5px; font-weight:500; padding:5px 13px; cursor:pointer;
-    border:1px solid var(--line); border-radius:999px; background:none; color:var(--ink-soft);
-  }
-  .map-switch button span{color:var(--ink-faint); font-weight:400; margin-left:3px}
-  .map-switch button[aria-pressed="true"]{border-color:var(--accent); background:var(--accent-soft); color:var(--ink)}
-  .map-switch button:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
-  .map{margin:0 0 6px}
-  .map svg{display:block; width:100%; height:auto}
-  .map-us svg{max-width:540px; margin:0 auto}
-  .map path{fill:var(--line); stroke:var(--paper); stroke-width:.6; stroke-linejoin:round}
-  .map path.been{fill:var(--accent)}
-  .map circle{fill:var(--accent); stroke:var(--paper); stroke-width:1.2}
-
   .lightbox{border:0; padding:0; background:transparent; max-width:min(92vw,1100px); max-height:92vh}
   .lightbox::backdrop{background:rgba(10,11,13,.82)}
   .lightbox img{display:block; max-width:min(92vw,1100px); max-height:84vh; width:auto; height:auto; border-radius:4px; margin:0 auto}
@@ -410,14 +394,6 @@
       <button class="shot" type="button" data-full="images/zurich.jpg" data-cap="Zürich" aria-label="Enlarge photo: Zürich"><img src="images/zurich-sm.jpg" alt="Lekshmi on a bridge in Zürich" loading="lazy"><span class="cap">Zürich</span></button>
       <button class="shot" type="button" data-full="images/trail.jpg" data-cap="Poo Poo Point, West Tiger Mountain, Washington" aria-label="Enlarge photo: Poo Poo Point, West Tiger Mountain, Washington"><img src="images/trail-sm.jpg" alt="Lekshmi with a white dog on a rocky mountain overlook" loading="lazy"><span class="cap">Poo Poo Point, West Tiger Mountain, Washington</span></button>
     </div>
-    <div class="maps">
-      <div class="map-switch" role="group" aria-label="Choose a map">
-        <button type="button" data-map="world" aria-pressed="true">World <span data-count="world"></span></button>
-        <button type="button" data-map="us" aria-pressed="false">United States <span data-count="us"></span></button>
-      </div>
-      <div class="map" id="map-world" role="img" aria-label="World map of the countries I have visited"></div>
-      <div class="map map-us" id="map-us" role="img" aria-label="Map of the US states I have visited" hidden></div>
-    </div>
   </section>
 
 
@@ -437,7 +413,6 @@
   <p></p>
 </dialog>
 
-<script src="maps.js"></script>
 <script>
 (function () {
   var lb =document.getElementById('lightbox');
@@ -453,77 +428,6 @@
     });
     lb.addEventListener('click', function () { lb.close(); });
   }
-})();
-(function () {
-  // Places to shade on the Elsewhere maps. Spell each name exactly as it appears
-  // in maps.js (search for data-name). The counts on the buttons above the map
-  // update themselves from these lists.
-  var countries = [
-    'India', 'United Arab Emirates', 'Singapore', 'Japan', 'China', 'Sri Lanka',
-    'United States of America', 'Canada', 'Mexico', 'Ecuador', 'Chile', 'Argentina',
-    'United Kingdom', 'France', 'Spain', 'Belgium', 'Italy', 'Netherlands', 'Germany',
-    'Denmark', 'Switzerland', 'Greece', 'Austria', 'Kenya', 'Iceland', 'Ireland',
-    'Portugal', 'Czechia'];
-  var states = [
-    'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut',
-    'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa',
-    'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan',
-    'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada',
-    'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'Ohio',
-    'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Dakota', 'Tennessee',
-    'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin',
-    'Wyoming'];
-  // Places too small to show on the world map: [name, latitude, longitude]
-  var pins = [['Singapore', 1.35, 103.82], ['Rapa Nui', -27.12, -109.35]];
-
-  var worldBox = document.getElementById('map-world'), usBox = document.getElementById('map-us');
-  if (!worldBox || !usBox) return;
-  if (!window.SITE_MAPS) { document.querySelector('.maps').hidden = true; return; }
-  var NS = 'http://www.w3.org/2000/svg';
-  function titled(el, text) {
-    var t = document.createElementNS(NS, 'title'); t.textContent = text; el.appendChild(t);
-  }
-  // Equal Earth projection, matching the one used to draw the world map
-  function project(lon, lat, k, minx, miny) {
-    var M = Math.sqrt(3) / 2, l = lon * Math.PI / 180;
-    var th = Math.asin(M * Math.sin(lat * Math.PI / 180)), t2 = th * th, t6 = t2 * t2 * t2;
-    var x = l * Math.cos(th) / (M * (1.340264 + 3 * -0.081106 * t2 + t6 * (7 * 0.000893 + 9 * 0.003796 * t2)));
-    var y = -th * (1.340264 - 0.081106 * t2 + t6 * (0.000893 + 0.003796 * t2));
-    return [(x - minx) * k, (y - miny) * k];
-  }
-  function draw(box, svg, shade) {
-    box.innerHTML = svg;
-    var map = box.querySelector('svg');
-    map.setAttribute('aria-hidden', 'true');
-    map.querySelectorAll('path').forEach(function (p) {
-      var name = p.getAttribute('data-name');
-      if (shade.indexOf(name) > -1) { p.classList.add('been'); titled(p, name); }
-    });
-    return map;
-  }
-  var world = draw(worldBox, window.SITE_MAPS.world, countries);
-  var k = +world.getAttribute('data-k'), minx = +world.getAttribute('data-minx'), miny = +world.getAttribute('data-miny');
-  pins.forEach(function (pin) {
-    var xy = project(pin[2], pin[1], k, minx, miny);
-    var c = document.createElementNS(NS, 'circle');
-    c.setAttribute('cx', xy[0].toFixed(1)); c.setAttribute('cy', xy[1].toFixed(1)); c.setAttribute('r', '4.5');
-    titled(c, pin[0]); world.appendChild(c);
-  });
-  draw(usBox, window.SITE_MAPS.us, states);
-
-  worldBox.setAttribute('aria-label', 'World map. Countries I have visited: ' + countries.join(', '));
-  usBox.setAttribute('aria-label', 'Map of the United States. States I have visited: ' + states.join(', '));
-  document.querySelector('[data-count="world"]').textContent = countries.length + ' countries';
-  document.querySelector('[data-count="us"]').textContent = states.length + ' of 50 states';
-
-  var buttons = document.querySelectorAll('.map-switch button');
-  buttons.forEach(function (b) {
-    b.addEventListener('click', function () {
-      buttons.forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
-      worldBox.hidden = b.getAttribute('data-map') !== 'world';
-      usBox.hidden = b.getAttribute('data-map') !== 'us';
-    });
-  });
 })();
 (function () {
   var tabs = ['about', 'research', 'publications', 'cv', 'elsewhere'];
