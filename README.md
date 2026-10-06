@@ -12,6 +12,13 @@ Personal academic homepage. Plain HTML — no build step, no dependencies.
 Open `index.html` in any text editor. The content starts after the closing
 `</style>` tag; everything above it is styling you can ignore.
 
+**Travel maps (Elsewhere tab).** The shaded countries and states are the
+`countries` and `states` lists in the `<script>` near the bottom of
+`index.html`. To add a place, add its name to the list, spelled exactly as in
+`maps.js` (search that file for `data-name="…"`; don't edit it otherwise). Places too small to draw on the world map, such as Singapore,
+go in the `pins` list with their latitude and longitude. The counts on the map
+buttons update by themselves.
+
 ## Things to add later
 
 - ORCID iD, once registered at orcid.org — add a line to the Contact block

@@ -195,12 +195,33 @@
   .research-head .shot img{aspect-ratio:4/3}
   @media (max-width:600px){ .research-head{grid-template-columns:1fr} .research-head .shot{max-width:320px} }
 
+  .side{display:grid; grid-template-columns:1fr 250px; gap:28px; align-items:start}
+  .side p{margin:0}
+  .side .shot img{aspect-ratio:4/3}
+  @media (max-width:600px){ .side{grid-template-columns:1fr; gap:16px} .side .shot{max-width:320px} }
+
   .lab-photos{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:16px 0 2px; max-width:460px; align-items:start}
   .lab-photos .shot img{aspect-ratio:4/3}
   .lab-photos.one{grid-template-columns:1fr; max-width:340px}
   .lab-photos.three{grid-template-columns:repeat(3,1fr); max-width:100%}
   .shot.wide{grid-column:span 2}
   .shot.wide img{aspect-ratio:2.08/1}
+
+  .maps{margin:44px 0 0}
+  .map-switch{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 16px}
+  .map-switch button{
+    font:inherit; font-size:13.5px; font-weight:500; padding:5px 13px; cursor:pointer;
+    border:1px solid var(--line); border-radius:999px; background:none; color:var(--ink-soft);
+  }
+  .map-switch button span{color:var(--ink-faint); font-weight:400; margin-left:3px}
+  .map-switch button[aria-pressed="true"]{border-color:var(--accent); background:var(--accent-soft); color:var(--ink)}
+  .map-switch button:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+  .map{margin:0 0 6px}
+  .map svg{display:block; width:100%; height:auto}
+  .map-us svg{max-width:540px; margin:0 auto}
+  .map path{fill:var(--line); stroke:var(--paper); stroke-width:.6; stroke-linejoin:round}
+  .map path.been{fill:var(--accent)}
+  .map circle{fill:var(--accent); stroke:var(--paper); stroke-width:1.2}
 
   .lightbox{border:0; padding:0; background:transparent; max-width:min(92vw,1100px); max-height:92vh}
   .lightbox::backdrop{background:rgba(10,11,13,.82)}
@@ -257,14 +278,14 @@
     <p class="lede">My personal questions and clinical experience found a framework while I was working with Dr. Mona Weissmark on <cite>Seeing the Other Side: Shifting Perceptions</cite>, on the psychology of perspective-taking across group and cultural lines. It gave me a way to think about what it takes to see from another position, and introduced me to research on transgenerational trauma and on why certain frames are so hard for people to step outside.</p>
 
     <h2>Clinical background</h2>
-    <p class="lede">For two years I managed a residential facility run by the Mental Health Association of South Central Kansas, home to more than 30 adults with chronic psychiatric conditions, most on the psychotic spectrum. A substantial number of residents were immigrants, and many spoke little or no English. It is the reason I think about assessment the way I do: I have watched what happens when a clinician and a patient do not share a frame for what is being described.</p>
-    <div class="lab-photos one">
+    <div class="side">
+      <p class="lede">For two years I managed a residential facility run by the Mental Health Association of South Central Kansas, home to more than 30 adults with chronic psychiatric conditions, most on the psychotic spectrum. A substantial number of residents were immigrants, and many spoke little or no English. It is the reason I think about assessment the way I do: I have watched what happens when a clinician and a patient do not share a frame for what is being described.</p>
       <button class="shot" type="button" data-full="images/lab-corridor.jpg" aria-label="Enlarge photo"><img src="images/lab-corridor-sm.jpg" alt="Lekshmi smiling in a building corridor at Harvard" loading="lazy"></button>
     </div>
 
     <h2>Languages</h2>
-    <p class="langs">I speak English, Malayalam, Tamil, and Hindi, and can recruit, interview, and run fieldwork in South Asian and diaspora communities without an interpreter.</p>
-    <div class="lab-photos one">
+    <div class="side">
+      <p class="langs">I speak English, Malayalam, Tamil, and Hindi, and can recruit, interview, and run fieldwork in South Asian and diaspora communities without an interpreter.</p>
       <button class="shot" type="button" data-full="images/kerala-street.jpg" data-cap="Thiruvananthapuram, Kerala" aria-label="Enlarge photo: Thiruvananthapuram, Kerala"><img src="images/kerala-street-sm.jpg" alt="Lekshmi crouching beside a friendly street dog next to an autorickshaw" loading="lazy"><span class="cap">Thiruvananthapuram, Kerala</span></button>
     </div>
 
@@ -343,7 +364,7 @@
     <h2>Under review</h2>
     <div class="pubs">
       <p class="pub">Hecht, E. E., Rogers Flattery, C., Abdulla, M., Michlich, J., <span class="me">Radhakrishnan, L.</span>, Dooyema, J., Chavez Flores, A., Swardstrom, R., Rogers, F., Helen, J., Althammer, F., Kukekova, A. V., &amp; Sherwood, C. C. Hypothalamic oxytocin and vasopressin cell populations do not differ across selectively-bred silver fox lineages but covary with brain-wide structural organization. <span class="jrnl">Journal of Comparative Neurology</span>, revised manuscript resubmitted September 2026.
-        <span class="note">I performed the stereological quantification and brought the cell-counting project to completion after it had changed hands more than once.</span></p>
+        <span class="note">I performed the stereological quantification and brought the cell-counting project to completion.</span></p>
     </div>
 
     <h2>In preparation</h2>
@@ -389,6 +410,14 @@
       <button class="shot" type="button" data-full="images/zurich.jpg" data-cap="Zürich" aria-label="Enlarge photo: Zürich"><img src="images/zurich-sm.jpg" alt="Lekshmi on a bridge in Zürich" loading="lazy"><span class="cap">Zürich</span></button>
       <button class="shot" type="button" data-full="images/trail.jpg" data-cap="Poo Poo Point, West Tiger Mountain, Washington" aria-label="Enlarge photo: Poo Poo Point, West Tiger Mountain, Washington"><img src="images/trail-sm.jpg" alt="Lekshmi with a white dog on a rocky mountain overlook" loading="lazy"><span class="cap">Poo Poo Point, West Tiger Mountain, Washington</span></button>
     </div>
+    <div class="maps">
+      <div class="map-switch" role="group" aria-label="Choose a map">
+        <button type="button" data-map="world" aria-pressed="true">World <span data-count="world"></span></button>
+        <button type="button" data-map="us" aria-pressed="false">United States <span data-count="us"></span></button>
+      </div>
+      <div class="map" id="map-world" role="img" aria-label="World map of the countries I have visited"></div>
+      <div class="map map-us" id="map-us" role="img" aria-label="Map of the US states I have visited" hidden></div>
+    </div>
   </section>
 
 
@@ -408,9 +437,10 @@
   <p></p>
 </dialog>
 
+<script src="maps.js"></script>
 <script>
 (function () {
-  var lb = document.getElementById('lightbox');
+  var lb =document.getElementById('lightbox');
   if (lb && lb.showModal) {
     var lbImg = lb.querySelector('img'), lbCap = lb.querySelector('p');
     document.querySelectorAll('.shot[data-full]').forEach(function (b) {
@@ -423,6 +453,77 @@
     });
     lb.addEventListener('click', function () { lb.close(); });
   }
+})();
+(function () {
+  // Places to shade on the Elsewhere maps. Spell each name exactly as it appears
+  // in maps.js (search for data-name). The counts on the buttons above the map
+  // update themselves from these lists.
+  var countries = [
+    'India', 'United Arab Emirates', 'Singapore', 'Japan', 'China', 'Sri Lanka',
+    'United States of America', 'Canada', 'Mexico', 'Ecuador', 'Chile', 'Argentina',
+    'United Kingdom', 'France', 'Spain', 'Belgium', 'Italy', 'Netherlands', 'Germany',
+    'Denmark', 'Switzerland', 'Greece', 'Austria', 'Kenya', 'Iceland', 'Ireland',
+    'Portugal', 'Czechia'];
+  var states = [
+    'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut',
+    'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa',
+    'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan',
+    'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada',
+    'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'Ohio',
+    'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Dakota', 'Tennessee',
+    'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin',
+    'Wyoming'];
+  // Places too small to show on the world map: [name, latitude, longitude]
+  var pins = [['Singapore', 1.35, 103.82], ['Rapa Nui', -27.12, -109.35]];
+
+  var worldBox = document.getElementById('map-world'), usBox = document.getElementById('map-us');
+  if (!worldBox || !usBox) return;
+  if (!window.SITE_MAPS) { document.querySelector('.maps').hidden = true; return; }
+  var NS = 'http://www.w3.org/2000/svg';
+  function titled(el, text) {
+    var t = document.createElementNS(NS, 'title'); t.textContent = text; el.appendChild(t);
+  }
+  // Equal Earth projection, matching the one used to draw the world map
+  function project(lon, lat, k, minx, miny) {
+    var M = Math.sqrt(3) / 2, l = lon * Math.PI / 180;
+    var th = Math.asin(M * Math.sin(lat * Math.PI / 180)), t2 = th * th, t6 = t2 * t2 * t2;
+    var x = l * Math.cos(th) / (M * (1.340264 + 3 * -0.081106 * t2 + t6 * (7 * 0.000893 + 9 * 0.003796 * t2)));
+    var y = -th * (1.340264 - 0.081106 * t2 + t6 * (0.000893 + 0.003796 * t2));
+    return [(x - minx) * k, (y - miny) * k];
+  }
+  function draw(box, svg, shade) {
+    box.innerHTML = svg;
+    var map = box.querySelector('svg');
+    map.setAttribute('aria-hidden', 'true');
+    map.querySelectorAll('path').forEach(function (p) {
+      var name = p.getAttribute('data-name');
+      if (shade.indexOf(name) > -1) { p.classList.add('been'); titled(p, name); }
+    });
+    return map;
+  }
+  var world = draw(worldBox, window.SITE_MAPS.world, countries);
+  var k = +world.getAttribute('data-k'), minx = +world.getAttribute('data-minx'), miny = +world.getAttribute('data-miny');
+  pins.forEach(function (pin) {
+    var xy = project(pin[2], pin[1], k, minx, miny);
+    var c = document.createElementNS(NS, 'circle');
+    c.setAttribute('cx', xy[0].toFixed(1)); c.setAttribute('cy', xy[1].toFixed(1)); c.setAttribute('r', '4.5');
+    titled(c, pin[0]); world.appendChild(c);
+  });
+  draw(usBox, window.SITE_MAPS.us, states);
+
+  worldBox.setAttribute('aria-label', 'World map. Countries I have visited: ' + countries.join(', '));
+  usBox.setAttribute('aria-label', 'Map of the United States. States I have visited: ' + states.join(', '));
+  document.querySelector('[data-count="world"]').textContent = countries.length + ' countries';
+  document.querySelector('[data-count="us"]').textContent = states.length + ' of 50 states';
+
+  var buttons = document.querySelectorAll('.map-switch button');
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () {
+      buttons.forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+      worldBox.hidden = b.getAttribute('data-map') !== 'world';
+      usBox.hidden = b.getAttribute('data-map') !== 'us';
+    });
+  });
 })();
 (function () {
   var tabs = ['about', 'research', 'publications', 'cv', 'elsewhere'];
